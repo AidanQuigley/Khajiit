@@ -1,0 +1,29 @@
+Alright here's a little bit of context for the files, folders, and structure of the entire program
+Idk I'll keep adding onto this to make the program a little easier to understand. 
+- Aidan 11/8/2023
+
+Folders and Files Context
+- The '(site)' folder is for adding different pages to the site.
+    - Each new page gets its own folder with the main file being a 'page.js' file
+- The 'api' folder is for everything API routing including authentication(NextAuth)/user login/registration
+- The 'context' folder is for contextual files that are necessary for the 'layout.js' file
+- 'globals.css' is a css file that globally defines top level elements (body,html,h1,h2,p,etc.) but NOT class or id (.whatever or #whatever)
+- 'layout.js' file is like a global page where you include global elements that you want to see on every page like navigation, footers, etc.
+- 'page.js' file is the index/homepage and is required to be called 'page.js'
+- The 'lib' folder is just being used for the prisma library
+- The 'prisma' folder currently holds all of the data information for users, login info and whatnot
+- The 'node_modules' folder contains the entire library of node files that are needed to run the program including added 3rd party libraries
+- '.env' file is the environments file that includes information for other resoruces and environments
+- '.gitignore' file is what hides importan files from github
+- 'jsconfig.json' file just contains a line to set the baseURL to '.' so you don't have to reference 
+    files using '../../../api' and can just do 'api'
+
+Other used libraries
+- Nextjs - This entire program is built upon Nextjs. Allows for fast client and server side rendering and just makes everything easier
+- NextAuth - Authentication for creating users and logging in and out
+- Prisma - Used to connect database to program
+- PostgreSQL - Used to setup users information
+- Tailwind - Improved CSS library/manager
+- React Hot Toast - Notification system for errors, popups, etc.
+- Axios - Differing fetch system from that of NextJS' that fetches data
+
