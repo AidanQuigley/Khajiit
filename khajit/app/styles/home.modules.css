@@ -1,0 +1,44 @@
+.titleWrap {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+}
+    .title {
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+.searchBar {
+    border: none;
+}
+.accountNav {
+    margin-bottom: 20px;
+}
+.accountWrap {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background-color: #FBF5F3;
+    padding: 10px;
+    font-size: 2xl;
+    margin-top: 50px;
+}
+    .createAcc {
+        position: relative;
+        justify-content: center;
+        background-color: #C42847;
+        color: #FBF5F3;
+        border-radius: 5px;
+        padding: 10px;
+    }   .createAcc:hover {
+            background-color: #DE3C4B;
+        }
+    .loginAcc {
+        position: relative;
+        justify-content: center;
+        color: #2A2B2A;
+        padding: 10px;
+        margin-left: 20px;
+    }
+

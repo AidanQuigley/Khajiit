@@ -1,7 +1,12 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import 'app/styles/home.modules.css'
 import Provider from './context/AuthContext'
 import ToasterContext from './context/ToasterContext'
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { config } from "@fortawesome/fontawesome-svg-core"; 
+config.autoAddCss = false;
+import Footer from './footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,8 +17,15 @@ export const metadata = {
 
 export default function RootLayout({ children, Component, pageProps}) {
   return (
-      <html lang="en">
-        <body className={inter.className}><Provider><ToasterContext />{children}</Provider></body>
+      <html className='min-h-screen relative' lang="en">
+        <body className={inter.className}>
+          <Provider>
+            <ToasterContext />
+            {children}
+            <Footer/>
+          </Provider>
+        </body>
       </html>
   )
 }
+

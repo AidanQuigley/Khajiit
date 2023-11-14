@@ -10,8 +10,10 @@ export default function LogOut() {
         .then(() => toast.success('User has been logged out!'))
     }
     return (
-        <div>
-            <button onClick={logoutUser}>Logout</button>
-        </div>
+        <>
+            <div className='createAcc'>
+                <button className='text-snow font-bold' onClick={logoutUser}>Logout</button>
+            </div>
+        </>
     );
 }

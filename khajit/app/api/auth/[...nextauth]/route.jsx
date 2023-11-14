@@ -21,8 +21,8 @@ export const authOptions = {
         password: { label: "Password", type: "password"},
         //username: { label: "Username", type: "text", placeholder: "Username"},
       },
-      //server: process.env.EMAIL_SERVER,
-      //from: process.env.EMAIL_FROM,
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM,
       async authorize(credentials) {
           if(!credentials.email || !credentials.password) {
               throw new Error('Please fill out all fields')

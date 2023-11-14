@@ -3,12 +3,17 @@
 import { useState } from "react"
 import { signIn } from 'next-auth/react'
 import toast from "react-hot-toast"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
 
-export default function Example() {
+export default function Login() {
     const [data, setData] = useState({
         email: '',
         password: '',
     })
+
+    const { push } = useRouter();
 
     const loginUser = async (e) => {
         e.preventDefault()
@@ -20,6 +25,7 @@ export default function Example() {
 
             if(callback?.ok&& !callback.error) {
                 toast.success('Successfully Logged In')
+                push('/')
             }
         })
     }
@@ -33,7 +39,7 @@ export default function Example() {
               alt="Your Company"
             />*/}
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Log in to your account
+              Log In To Your Account
             </h2>
           </div>
   
@@ -41,7 +47,7 @@ export default function Example() {
             <form className="space-y-6" onSubmit={loginUser}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                  Email address
+                  Email Address
                 </label>
                 <div className="mt-2">
                   <input
@@ -52,7 +58,7 @@ export default function Example() {
                     value={data.email}
                     onChange={e => setData({...data, email: e.target.value})}
                     required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-jet shadow-sm ring-1 ring-inset ring-jet placeholder:text-jet focus:ring-2 focus:ring-inset focus:ring-cardinal sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -79,7 +85,7 @@ export default function Example() {
                     required
                     value={data.password}
                     onChange={e => setData({...data, password: e.target.value})}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-jet shadow-sm ring-1 ring-inset ring-jet placeholder:text-jet focus:ring-2 focus:ring-inset focus:ring-cardinal sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -87,12 +93,15 @@ export default function Example() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-cardinal px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rustyred focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-snow"
                 >
                   Log In
                 </button>
               </div>
             </form>
+          </div>
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h3 className="mt-5 mb-0 text-center text-l font-bold tracking-tight">or <Link className="text-cardinal hover:text-rustyred" href='/register'>Create an Account</Link></h3>
           </div>
         </div>
       </>
