@@ -62,8 +62,8 @@ model Session {
 }
 
 model Apps {
-  id           String   @id @default(cuid())
-  Name         String
+  id           Int      @id @default(cuid())
+  Name         String   @db.Text
   Rating       float
   Type         String
   Price        float

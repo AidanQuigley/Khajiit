@@ -17,17 +17,17 @@ export default async function Home() {
 //THIS IS WHAT IS CAUSING THE ERROR!!!!!!!!!!
   const apps = [];
     for (let i = 1; i < 11; i++) {
-        const app = await prisma.Apps.findUnique({
+        const app = await prisma.Apps.id({
             where: {
                 id: i,
             },
         })
-        app.name = prisma.Apps.Name({
-            where: {
-                id: i,
-            },
-        })
-        apps[i] = app;
+        //app.name = prisma.Apps.Name({
+            //where: {
+                //id: i,
+            //},
+        //})
+        //apps[i] = app;
     }
   return (
     <main>
