@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from './api/auth/[...nextauth]/route'
 import LogOut from './logout'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import prisma from 'lib/prisma'
 import {
   faUser,
   faBookmark,
@@ -12,7 +13,22 @@ import SearchSort from './searchSort';
 export default async function Home() {
   const session = await getServerSession(authOptions)
   //Login Session Handling
-  
+
+//THIS IS WHAT IS CAUSING THE ERROR!!!!!!!!!!
+  const apps = [];
+    for (let i = 1; i < 11; i++) {
+        const app = await prisma.Apps.findUnique({
+            where: {
+                id: i,
+            },
+        })
+        app.name = prisma.Apps.Name({
+            where: {
+                id: i,
+            },
+        })
+        apps[i] = app;
+    }
   return (
     <main>
       

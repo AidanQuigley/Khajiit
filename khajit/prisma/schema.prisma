@@ -60,3 +60,14 @@ model Session {
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model Apps {
+  id           String   @id @default(cuid())
+  Name         String
+  Rating       float
+  Type         String
+  Price        float
+  Platform     String
+  Download     float
+  RequiredSystem String
+}
