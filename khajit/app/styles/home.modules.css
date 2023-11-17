@@ -42,3 +42,10 @@
         margin-left: 20px;
     }
 
+.sortDropDown {
+    display: none;
+}
+
+.sortDropWrap:hover .sortDropDown {
+    display: block;
+}

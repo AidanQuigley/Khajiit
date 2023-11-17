@@ -7,6 +7,7 @@ import {
   faUser,
   faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
+import SearchSort from './searchSort';
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -47,13 +48,7 @@ export default async function Home() {
         )}
       </div>
 
-      <div className='searchBar flex h-10 text-lg justify-center text-center leading-10'>
-        <h1 className='bg-snow w-2/12 h-full text-jet font-bold rounded-tl-lg'>Catalog Search</h1>
-        <input className='bg-jet w-6/12 border-none ring-inset ring-2 ring-snow focus:ring-inset focus:ring-2 focus:ring-snow' type="text" placeholder="search.."/>
-        <button className='bg-snow w-1/12 h-full text-jet hover:text-cardinal hover:bg-snowdarker font-bold'>Sort</button>
-        <button className='bg-snow w-1/12 h-full text-jet hover:text-cardinal hover:bg-snowdarker font-bold'><FontAwesomeIcon icon={faBookmark} /></button>
-        <button className='bg-cardinal w-2/12 rounded-tr-lg h-full text-snow font-bold hover:bg-rustyred'>Search</button>
-      </div>
+      <SearchSort/>
 
       <div className='catalog bg-snow w-full'>
         {/*Shows up if you are logged in*/}
