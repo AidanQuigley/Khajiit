@@ -10,21 +10,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SearchSort from './searchSort';
 
+
+export const apps = [];
+for (let i = 1; i < 11; i++) {
+    const app = await prisma.Apps.findUnique({
+        where: {
+            id: i,
+        },
+    })
+    
+    apps[i] = app;
+  }
 export default async function Home() {
   const session = await getServerSession(authOptions)
   //Login Session Handling
 
 //THIS IS WHAT IS CAUSING THE ERROR!!!!!!!!!!
-  const apps = [];
-    for (let i = 1; i < 11; i++) {
-        const app = await prisma.Apps.findUnique({
-            where: {
-                id: i,
-            },
-        })
-        
-        apps[i] = app;
-      }
+ 
   return (
     <main>
       
@@ -69,7 +71,7 @@ export default async function Home() {
           <div className='catalogLogin justify-center text-center border-4 bg-snowdarker rounded-lg w-6/12 m-auto'>
             <ul>
               {apps.map(apps =>
-                <li key ={apps.id}>{apps.Name}</li>
+                  <li key ={apps.id}>{apps.Name} ${apps.Price} {apps.Rating}/5 {apps.Platform} {apps.Download} {apps.RequiredSystem}</li>
                 )}
             </ul>
           </div>

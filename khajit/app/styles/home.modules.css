@@ -49,3 +49,7 @@
 .sortDropWrap:hover .sortDropDown {
     display: block;
 }
+
+li{
+    color:#2A2B2A;
+}
