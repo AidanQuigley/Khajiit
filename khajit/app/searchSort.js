@@ -56,6 +56,16 @@ export default function SearchSort() {
         }
     }
 
+    const clickFreeOrPaid = () => {
+        if (whatSort === 9) {
+            setWhatSort(10);
+        } else if (whatSort === 10) {
+            setWhatSort(0);
+        } else {
+            setWhatSort(9);
+        }
+    }
+
     return (
         <>
             <div className='searchBar flex h-10 text-lg justify-center text-center leading-10'>
@@ -91,6 +101,11 @@ export default function SearchSort() {
                             Release Date {whatSort != 7 && whatSort != 8 && ( <FontAwesomeIcon icon={faArrowsUpDown} />)}
                             {whatSort == 7 && ( <FontAwesomeIcon icon={faArrowUp} />)}
                             {whatSort == 8 && ( <FontAwesomeIcon icon={faArrowDown} />)}
+                        </button>
+                        <button onClick={clickFreeOrPaid} className={whatSort === 9 || whatSort === 10 ? (whatSort === 9 ? 'bg-rustyred text-snow rounded-lg p-3 mr-2' : 'bg-jet text-snow rounded-lg p-3 mr-2') : 'sortOption bg-snow text-jet hover:ring-cardinal hover:ring-2 hover:ring-inset rounded-lg p-3 mr-2'}>
+                            Free or Paid {whatSort != 9 && whatSort != 10 && ( <FontAwesomeIcon icon={faArrowsUpDown}/>)}
+                            {whatSort == 9 && ( <FontAwesomeIcon icon={faArrowUp}/>)}
+                            {whatSort == 10 && ( <FontAwesomeIcon icon={faArrowDown}/>)}
                         </button>
                     </div>
                 </div>
