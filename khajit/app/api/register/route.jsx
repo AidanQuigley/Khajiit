@@ -31,7 +31,7 @@ export async function POST(request) {
             name,
             email,
             hashedPassword,
-            isModerator: false,
+            //isModerator: false,
         }
     });
     {/**Return's user with next response and user*/}

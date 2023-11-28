@@ -7,9 +7,10 @@ import prisma from 'lib/prisma'
 import {
   faUser,
   faBookmark,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchSort from './searchSort';
-
+import AddPopUp from './addPopUp';
 
 export const apps = [];
 for (let i = 1; i < 11; i++) {
@@ -25,7 +26,8 @@ export default async function Home() {
   const session = await getServerSession(authOptions)
   //Login Session Handling
 
-//THIS IS WHAT IS CAUSING THE ERROR!!!!!!!!!!
+  console.log(session?.user.isModerator)
+  //const mod = session.user.isModerator;
  
   return (
     <main>
@@ -42,7 +44,7 @@ export default async function Home() {
           <div className='accountWrap rounded-lg'>
             {/*<pre>{JSON.stringify(session)}</pre>*/}
             <FontAwesomeIcon icon={faUser} size="lg" style={{color: "#2a2b2a", padding: "12px 5px 5px 15px", marginRight: "20px"}} />
-            <h1 className='text-jet'>Welcome, {JSON.stringify(session)}</h1>
+            <h1 className='text-jet text-lg mt-auto mb-auto'>Welcome, {session.user.name} </h1>
             <LogOut></LogOut>
           </div>
         ) : (
@@ -71,7 +73,10 @@ export default async function Home() {
           <div className='catalogLogin justify-center text-center border-4 bg-snowdarker rounded-lg w-6/12 m-auto'>
             <ul>
               {apps.map(apps =>
-                  <li key ={apps.id}>{apps.Name} ${apps.Price} {apps.Rating}/5 {apps.Platform} {apps.Download} {apps.RequiredSystem}</li>
+                  <li key ={apps.id}>
+                    <div className='text-cardinal inline'>{apps.Name}</div> <div className='inline text-jet rounded-sm'>${apps.Price}</div> {apps.Rating}/5 {apps.Platform} {apps.Download} {apps.RequiredSystem}
+                    <AddPopUp></AddPopUp>
+                  </li>
                 )}
             </ul>
           </div>
@@ -86,6 +91,18 @@ export default async function Home() {
               </h1>
               <h3 className='text-jet mt-4 mb-4'>To View Our Extensive Catalog of Apps</h3>
             </div>
+          </div>
+        )}
+      </div>
+      <div className='bg-cardinal w-full'>
+        {session?.user.isModerator ? (
+          <div className='AddApp p-1 justify-center text-center'>
+            <div className='w-full'>
+              <h1 className='font-bold'><FontAwesomeIcon icon={faPlus} /> Add App</h1>
+            </div>
+          </div>
+        ):(
+          <div>
           </div>
         )}
       </div>

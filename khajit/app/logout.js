@@ -11,7 +11,7 @@ export default function LogOut() {
     }
     return (
         <>
-            <div className='createAcc'>
+            <div className='createAcc ml-3'>
                 <button className='text-snow font-bold' onClick={logoutUser}>Logout</button>
             </div>
         </>
