@@ -22,13 +22,9 @@ export default async function Home() {
                 id: i,
             },
         })
-        //app.name = prisma.Apps.Name({
-            //where: {
-                //id: i,
-            //},
-        //})
-        //apps[i] = app;
-    }
+        
+        apps[i] = app;
+      }
   return (
     <main>
       
@@ -71,9 +67,11 @@ export default async function Home() {
         {session ? (
           <div className='catalogWrap p-4 justify-center text-center'>
           <div className='catalogLogin justify-center text-center border-4 bg-snowdarker rounded-lg w-6/12 m-auto'>
-            <h1 className='text-jet text-4xl mt-4 mb-4 font-bold'>
-              Catalog Not Found
-            </h1>
+            <ul>
+              {apps.map(apps =>
+                <li key ={apps.id}>{apps.Name}</li>
+                )}
+            </ul>
           </div>
         </div>
         ) : (
