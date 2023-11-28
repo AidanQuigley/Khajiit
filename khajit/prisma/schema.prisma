@@ -62,12 +62,12 @@ model Session {
 }
 
 model Apps {
-  id           Int      @id @default(cuid())
+  id           Int      @id
   Name         String   @db.Text
-  Rating       float
+  Rating       Float
   Type         String
-  Price        float
+  Price        Float
   Platform     String
-  Download     float
+  Download     Float
   RequiredSystem String
 }

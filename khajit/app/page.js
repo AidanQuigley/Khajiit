@@ -17,7 +17,7 @@ export default async function Home() {
 //THIS IS WHAT IS CAUSING THE ERROR!!!!!!!!!!
   const apps = [];
     for (let i = 1; i < 11; i++) {
-        const app = await prisma.Apps.id({
+        const app = await prisma.Apps.findUnique({
             where: {
                 id: i,
             },
