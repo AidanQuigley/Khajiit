@@ -8,6 +8,7 @@ import {
   faUser,
   faBookmark,
   faPlus,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchSort from './searchSort';
 import AddPopUp from './addPopUp';
@@ -69,13 +70,29 @@ export default async function Home() {
       <div className='catalog bg-snow w-full'>
         {/*Shows up if you are logged in*/}
         {session ? (
-          <div className='catalogWrap p-4 justify-center text-center'>
-          <div className='catalogLogin justify-center text-center border-4 bg-snowdarker rounded-lg w-6/12 m-auto'>
+          <div className='catalogWrap p-4'>
+          <div className='catalogLogin border-4 bg-snowdarker rounded-lg w-6/12 m-auto'>
             <ul>
               {apps.map(apps =>
                   <li key ={apps.id}>
-                    <div className='text-cardinal inline'>{apps.Name}</div> <div className='inline text-jet rounded-sm'>${apps.Price}</div> {apps.Rating}/5 {apps.Platform} {apps.Download} {apps.RequiredSystem}
-                    <AddPopUp></AddPopUp>
+                    <div className=''></div>
+                    <div className='text-cardinal inline mr-3'>{apps.Name}</div>
+                    <div className='text-orangeweb inline'><FontAwesomeIcon icon={faStar} /> {apps.Rating}/5 </div>
+                    <Link href={{
+                      pathname: '/appPage',
+                      query: {
+                        Name: apps.Name,
+                        Price: apps.Price,
+                        Rating: apps.Rating,
+                        Platform: apps.Platform,
+                        Download: apps.Download,
+                        RequiredSystem: apps.RequiredSystem,
+                      }
+                    }}>
+                      {/*<AddPopUp/>*/}
+                      <div className='text-cardinal inline float-right'>Download</div>
+                    </Link>
+                    <hr className='border-2 border-snow'></hr>
                   </li>
                 )}
             </ul>

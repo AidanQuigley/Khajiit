@@ -22,7 +22,9 @@ module.exports = {
       snowdarker: '#F5E6E0',
       jet: '#2A2B2A',
       jetdarker: '#1E1F1E',
-      black: '#000000'
+      black: '#000000',
+      orangeweb: '#FAA916',
+      
     },
   },
   plugins: [
