@@ -26,6 +26,16 @@ export const authOptions = {
         password: { label: "Password", type: "password"},
         //username: { label: "Username", type: "text", placeholder: "Username"},
       },
+      profile(profile) {
+        let userRole = "user"
+        if (profile?.email == "b@b.b") {
+          userRole = "moderator";
+        }
+        return { 
+          ...profile,
+          role: userRole,
+        }
+      },
       server: process.env.EMAIL_SERVER,
       from: process.env.EMAIL_FROM,
       async authorize(credentials) {
@@ -59,6 +69,17 @@ export const authOptions = {
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60 // 30 days
+  },
+
+  callbacks: {
+    async jwt({token, user}) {
+      if(user) token.isModerator = user.isModerator
+      return token
+    },
+    async session({session, token}) {
+      if(session?.user) session.user.isModerator = token.isModerator
+      return session
+    },
   },
 
   debug: process.env.NODE_ENV === "development",

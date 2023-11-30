@@ -82,7 +82,7 @@ export default async function Home() {
         {/*Shows up if you are logged in*/}
         {session ? (
           <div className='catalogWrap p-4'>
-          <div className='catalogLogin border-4 bg-snowdarker rounded-lg w-6/12 m-auto'>
+          <div className='catalogLogin border-4 bg-snowdarker rounded-lg w-10/12 m-auto'>
             <ul>
               {apps.map(apps =>
                   <li key ={apps.id}>
@@ -101,7 +101,7 @@ export default async function Home() {
                       }
                     }}>
                       {/*<AddPopUp/>*/}
-                      <div className='text-cardinal inline float-right'>Download</div>
+                      <div className='text-cardinal inline float-right'>More</div>
                     </Link>
                     <hr className='border-2 border-snow'></hr>
                   </li>
@@ -123,14 +123,11 @@ export default async function Home() {
         )}
       </div>
       <div className='bg-cardinal w-full'>
-        {session?.user.isModerator ? (
+        {session?.user.isModerator && (
           <div className='AddApp p-1 justify-center text-center'>
             <div className='w-full'>
               <h1 className='font-bold'><FontAwesomeIcon icon={faPlus} /> Add App</h1>
             </div>
-          </div>
-        ):(
-          <div>
           </div>
         )}
       </div>

@@ -16,6 +16,7 @@ export default function Register() {
         name: '',
         email: '',
         password: '',
+        isModerator: false,
     })
 
     const { push } = useRouter();

@@ -7,6 +7,7 @@ import {
   faArrowsUpDown,
   faArrowUp,
   faArrowDown,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useSearchParams } from 'next/navigation'
@@ -19,20 +20,24 @@ export default function appPage(){
         <>
             <div className='titleWrap mb-4'>
                 <Link href='/'>
-                <h1 className='title font-bold'>Welcome to <span style={{color: '#C42847'}}>Khajiit</span></h1>
+                <h1 className='title font-bold'>{searchParams.get('Name')}</h1>
                 </Link>
             </div>
 
             <div className='bg-snow m-auto w-10/12 border-snow text-jet'>
-                <div className='h-5 flex m-2'>
-                    <h1>Yeah</h1>
-                    <h1>{searchParams.get('Name')}</h1>
-                    <h1>${searchParams.get('Price')}</h1>
-                    <h1>{searchParams.get('Rating')}/5</h1>
-                    <h1>{searchParams.get('Platform')}</h1>
-                    <h1>{searchParams.get('Download')}</h1>
-                    <h1>{searchParams.get('RequiredSystem')}</h1>
+                <div className='m-2'>
+                    <h1 className='justify-center text-center font-bold text-cardinal flex'>{searchParams.get('Name')}</h1>
+                    <h1 className='flex'>Price: ${searchParams.get('Price')}</h1>
+                    <h1>User Ratings: {searchParams.get('Rating')}/5</h1>
+                    <h1>Device Platform(s): {searchParams.get('Platform')}</h1>
+                    <h1>Opperating Systems: {searchParams.get('RequiredSystem')}</h1>
+                    <h1>Number of Downloads: {searchParams.get('Download')}</h1>
                 </div>
+            </div>
+            <div className='relative w-1/12 m-auto text-center justify-center'>
+                <Link href='/'>
+                    <div className="bg-cardinal rounded-lg text-snow p-2"><FontAwesomeIcon icon={faHouse} /> Go Back </div>
+                </Link>
             </div>
         </>
     );
