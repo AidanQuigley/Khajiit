@@ -22,6 +22,17 @@ for (let i = 1; i < 11; i++) {
     
     apps[i] = app;
   }
+
+  async function appInfo(int){
+      
+      const app = int;
+
+      return(
+        <p>
+          ${app.Price} {app.Rating}/5 {app.Platform} {app.Download} {app.RequiredSystem}
+        </p>
+      )
+  }
 export default async function Home() {
   const session = await getServerSession(authOptions)
   //Login Session Handling
@@ -74,7 +85,8 @@ export default async function Home() {
             <ul>
               {apps.map(apps =>
                   <li key ={apps.id}>
-                    <div className='text-cardinal inline'>{apps.Name}</div> <div className='inline text-jet rounded-sm'>${apps.Price}</div> {apps.Rating}/5 {apps.Platform} {apps.Download} {apps.RequiredSystem}
+                    <div className='text-cardinal inline'>{apps.Name}</div> 
+                    {appInfo(apps)}
                     <AddPopUp></AddPopUp>
                   </li>
                 )}
