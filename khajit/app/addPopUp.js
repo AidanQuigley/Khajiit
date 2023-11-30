@@ -9,14 +9,15 @@ import {
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import prisma from 'lib/prisma';
 import { useSearchParams } from 'next/navigation'
 
 export default function AddPopUp() {
-
+    
     const [isDisplay, setDisplay] = useState(false);
     const toggleDisplay = () => setDisplay(!isDisplay);
     const searchParams = useSearchParams();
-
+    
     return (
         <>
             <div onClick={toggleDisplay} className='text-cardinal inline float-right'>Download</div>
