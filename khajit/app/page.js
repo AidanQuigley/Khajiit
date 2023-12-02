@@ -98,6 +98,7 @@ export default async function Home() {
                         Platform: apps.Platform,
                         Download: apps.Download,
                         RequiredSystem: apps.RequiredSystem,
+                        isModerator: session.user.isModerator,
                       }
                     }}>
                       {/*<AddPopUp/>*/}

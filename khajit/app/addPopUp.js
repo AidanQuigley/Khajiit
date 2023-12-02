@@ -26,12 +26,12 @@ export default function AddPopUp() {
                     <div className='bg-snowdarker bg-opacity-30 w-full h-full border-4 border-snow text-jet'>
                         <div className='bg-snowdarker w-6/12 h-5 flex m-2'>
                             <h1>Yeah</h1>
-                            <h1>{searchParams.get('Name')}</h1>
-                            <h1>${searchParams.get('Price')}</h1>
-                            <h1>{searchParams.get('Rating')}/5</h1>
-                            <h1>{searchParams.get('Platform')}</h1>
-                            <h1>{searchParams.get('Download')}</h1>
-                            <h1>{searchParams.get('RequiredSystem')}</h1>
+                            <h1>{searchParams.get('Name')} </h1>
+                            <h1>${searchParams.get('Price')} </h1>
+                            <h1>{searchParams.get('Rating')}/5 </h1>
+                            <h1>{searchParams.get('Platform')} </h1>
+                            <h1>{searchParams.get('Download')} Downloads</h1>
+                            <h1>{searchParams.get('RequiredSystem')} </h1>
                         </div>
                     </div>
                     )
