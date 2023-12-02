@@ -36,6 +36,7 @@ export default async function Home() {
  
   return (
     <main>
+      <title>Khajiit</title>
       
       <div className='titleWrap'>
         <Link href='/'>

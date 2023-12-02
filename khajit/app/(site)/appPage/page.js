@@ -13,6 +13,12 @@ import { useState } from "react";
 import { useSearchParams } from 'next/navigation'
 import Link from "next/link";
 
+export const comments = [];
+comments[1] = "This app is awesome!";
+comments[2] = "This app sucks!";
+comments[3] = "Can't believe this app exists?!";
+comments[4] = "This app could've been done better.";
+
 export default function appPage(){
     const toggleDisplay = () => setDisplay(!isDisplay);
     const searchParams = useSearchParams();
@@ -33,6 +39,22 @@ export default function appPage(){
                     <h1>Opperating Systems: {searchParams.get('RequiredSystem')}</h1>
                     <h1>Number of Downloads: {searchParams.get('Download')}</h1>
                 </div>
+
+                <h1 >
+                    Comments: 
+                </h1>
+                
+                <ul>
+                    {comments.map(comments =>
+                        <li>
+                            {comments}
+                            
+                            {(searchParams.get('isModerator')) &&
+                                <button>Delete</button>
+                            }
+                        </li>
+                        )}
+                </ul>
             </div>
             <div className='relative w-1/12 m-auto text-center justify-center'>
                 <Link href='/'>
