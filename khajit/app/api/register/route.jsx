@@ -2,6 +2,8 @@ import bcrypt from 'bcrypt'
 import prisma from 'lib/prisma'
 import { NextResponse } from 'next/server'
 
+/** Registration file that handles all registration of users in backend */
+
 export async function POST(request) {
     /**Need to await request */
     const body = await request.json();

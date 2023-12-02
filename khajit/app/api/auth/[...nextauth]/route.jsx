@@ -8,6 +8,10 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import prisma from 'lib/prisma'
 import bcrypt from 'bcrypt'
 
+/** Main authentication file that handles all user loggins in the backend 
+ * Uses Credentials Provider only atm which causes problems with moderator roles explained in the first/main page.js file
+*/
+
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [

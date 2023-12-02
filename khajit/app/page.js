@@ -24,6 +24,8 @@ import AddApp from './AddApp'
  * SQL database, tailwind for styling purposes, and a few smaller programs/resources such as FontAwesome and Axios
  * 
  * Last Updated 1 December, 2023
+ * 
+ * Please read README.md file before beginning
 */
 
 // This file is what is initially displayed to the user and serves as the homepage

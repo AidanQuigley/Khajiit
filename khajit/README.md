@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#### Created by Berk Software - Group 16
+####
+#### Miami University CSE 201 - Fall 2023
+#### Instructor: Hakam Alomari, Ph.D.
+####
+#### Project Developers: Aidan Quigley, Griff Decker, Jackson Little, Quinn Connolly
+#### 
+#### Khajiit - App Catalog
+#### 
+#### This project was created with the Nextjs framework utilizing NextAuth for authentication and registering/logging in,
+#### Prisma for connecting our project to an online database, Supabase for hosting our online database, PostgreSQL as our
+#### SQL database, tailwind for styling purposes, and a few smaller programs/resources such as FontAwesome and Axios
+#### 
+#### Last Updated 1 December, 2023
 
-## Getting Started
 
-First, run the development server:
+### Get started:
+- Download and install Nodejs to your system/computer
+- Recommended to open project in Visual Studio Code
+- Make sure you are in the second 'khajit' directory folder (ex C:\Users\asq91\Documents\GitHub\Kahjit\khajit) ie 'cd ./khajit'
+- If any errors occur, install NextJS to the project on your end using 'npm install next -g' in the above directroy ^
+- or 'npm i' to update if any libraries were added in
+- Use the command: 'npm run dev' to run the dev environment
+- Open [http://localhost:3000] in any browser(recomend chrome) to view result
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Page.js is the 'home' file in which the website starts and is entirely server side rendered
+- Layout.js is like a global javascript file where you include global elements that you want to see on every page like navigation, footers, etc.
+- Any other js file not in a folder are mostly client sided components with an exception of one file
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Folders and Files Context
+- The '(site)' folder is for adding different pages to the site.
+    - Each new page gets its own folder with the main file being a 'page.js' file
+- The 'api' folder is for everything API routing including authentication(NextAuth)/user login/registration
+- The 'context' folder is for contextual files that are necessary for the 'layout.js' file
+- 'globals.css' is a css file that globally defines top level elements (body,html,h1,h2,p,etc.) but NOT class or id (.whatever or #whatever)
+- 'layout.js' file is like a global page where you include global elements that you want to see on every page like navigation, footers, etc.
+- 'page.js' file is the index/homepage and is required to be called 'page.js'
+- The 'lib' folder is just being used for the prisma library
+- The 'prisma' folder currently holds all of the data information for users, login info and whatnot
+- The 'node_modules' folder contains the entire library of node files that are needed to run the program including added 3rd party libraries
+- '.env' file is the environments file that includes information for other resoruces and environments
+- '.gitignore' file is what hides importan files from github
+- 'jsconfig.json' file just contains a line to set the baseURL to '.' so you don't have to reference 
+    files using '../../../api' and can just do 'api'
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Other used libraries
+- Nextjs - This entire program is built upon Nextjs. Allows for fast client and server side rendering and just makes everything easier
+- NextAuth - Authentication for creating users and logging in and out
+- Prisma - Used to connect database to program
+- PostgreSQL - Used to setup users information
+- Tailwind - Improved CSS library/manager
+- React Hot Toast - Notification system for errors, popups, etc.
+- Axios - Differing fetch system from that of NextJS' that fetches data
+- FontAwesome - Library of icons
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
+### Resources:
+- Authentication video: https://www.youtube.com/watch?v=PrdbyNYq-z4&t=2s
+- Supabase: Where I'm holding user database
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

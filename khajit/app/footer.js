@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 
+/** Footer componenet that is added onto every page using the layout.js file */
+
 export default function Footer() {
     return(
         <React.Fragment>

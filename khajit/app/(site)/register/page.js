@@ -11,6 +11,8 @@ import { toast } from 'react-hot-toast'
 import { useRouter } from "next/navigation"
 import Link from 'next/link'
 
+/** Frontend visuals for registering an account */
+
 export default function Register() {
     const [data, setData] = useState({
         name: '',

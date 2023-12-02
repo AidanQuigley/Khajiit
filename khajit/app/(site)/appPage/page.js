@@ -13,6 +13,8 @@ import { useState } from "react";
 import { useSearchParams } from 'next/navigation'
 import Link from "next/link";
 
+/** Main visual of the pages for each individual app. Takes data from the apps table and displays them here */
+
 export const comments = [];
 comments[1] = "This app is awesome!";
 comments[2] = "This app sucks!";

@@ -2,6 +2,8 @@
 
 import { signOut } from "next-auth/react";
 
+/** Visual button for logging out of the app that displays only if user is logged in */
+
 export default function LogOut() {
 
     const logoutUser = async (e) => {

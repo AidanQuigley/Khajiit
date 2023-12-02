@@ -7,6 +7,8 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 
+/** Login page that mostly consists of frontend visuals for logging in */
+
 export default function Login() {
     const [data, setData] = useState({
         email: '',
