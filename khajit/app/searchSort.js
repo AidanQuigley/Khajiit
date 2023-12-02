@@ -9,6 +9,7 @@ import {
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { apps } from "./page";
 
 export default function SearchSort() {
     const [isShowSort, setShowSort] = useState(false);
@@ -19,6 +20,7 @@ export default function SearchSort() {
     const clickPrice = () => {
         if (whatSort === 1) {
             setWhatSort(2);
+            apps[1] = apps[2];
         } else if (whatSort === 2) {
             setWhatSort(0);
         } else {
