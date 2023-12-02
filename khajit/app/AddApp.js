@@ -29,6 +29,8 @@ export default function AddApp() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        
+
         const newapp = {
             appName, type, price, device, os,
         }
