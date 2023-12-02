@@ -9,7 +9,7 @@ import {
   faArrowDown,
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from 'next/navigation'
 import Link from "next/link";
 
@@ -21,9 +21,32 @@ comments[2] = "This app sucks!";
 comments[3] = "Can't believe this app exists?!";
 comments[4] = "This app could've been done better.";
 
+
+
+
+function addComent(comment){
+    comments[comments.length+1] = comment;
+}
+
+
+function removeComment(comment){
+    comments.splice(comment, 1);
+}
+
 export default function appPage(){
     const toggleDisplay = () => setDisplay(!isDisplay);
     const searchParams = useSearchParams();
+    //comment that the user wants to submit
+    const [comment, setComment] = useState('');
+
+    //this is used to add a comment, but since currently the comments are 
+    //in an array in the page, it won't show on the site.
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+    
+        addComent(comment);
+    }
+
     return (
         <>
             <div className='titleWrap mb-4'>
@@ -45,16 +68,33 @@ export default function appPage(){
                 <h1 >
                     Comments: 
                 </h1>
-                
+                {
+                //This form is for where the comments get submitted.
+                }
+                <form onSubmit={handleSubmit}>
+                    <input
+                    type="text"
+                    comment="Comment"
+                    onChange={(e) => setComment(e.target.value)}
+                    />
+                    <br/>
+                    <button type="submit" >
+                        Post Comment
+                    </button>
+                </form>
                 <ul>
                     {comments.map(comments =>
+                        <div>
                         <li>
-                            {comments}
-                            
-                            {(searchParams.get('isModerator')) &&
-                                <button>Delete</button>
+                            {comments} 
+                            {searchParams.get("ifModerator") &&
+                            //this is supposed to delete some comments but it breaks when used due to Next.JS testing.
+                            <button onClick={removeComment(comments)}> 
+                                Delete
+                            </button>
                             }
                         </li>
+                        </div>
                         )}
                 </ul>
             </div>

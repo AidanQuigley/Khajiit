@@ -13,7 +13,6 @@ import { useState } from "react";
 /** Visual Search Sort Function that currently only displays visual of sorting function without much functionality
  *  besides changing of styling when buttons are clicked
  */
-
 export default function SearchSort() {
     const [isShowSort, setShowSort] = useState(false);
     const toggleShowSort = () => setShowSort(!isShowSort);
