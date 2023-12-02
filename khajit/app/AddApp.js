@@ -16,6 +16,9 @@ import axios from "axios";
 import ServerCreateApp from './serverCreateApp'
 
 
+/** AddApp displays the form to add additional apps from the moderator's perspective
+ *  and also sends the data to it's server-sided file, serverCreateApp.js
+ */
 export default function AddApp() { 
     const [isDisplay, setDisplay] = useState(false);
     const toggleDisplay = () => setDisplay(!isDisplay);
@@ -34,15 +37,6 @@ export default function AddApp() {
         }
 
         ServerCreateApp(newapp)
-
-        /*const { data } = await axios.post('/api/newapps', {
-            appName,
-            type,
-            price,
-            device,
-            os,
-        })
-        console.log(data)*/
     }
     
     return (

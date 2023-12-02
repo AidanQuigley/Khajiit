@@ -2,6 +2,10 @@
 
 import prisma from "lib/prisma";
 
+/** Server side for AddApp.js file that takes data from form in that file 
+ *  and adds to database using prisma
+ */
+
 export default async function serverCreateApp(newapp) {
     
     var appCount = await prisma.apps.count();
@@ -17,5 +21,5 @@ export default async function serverCreateApp(newapp) {
             Download: 0,
         }
     })
-    
+
 }
