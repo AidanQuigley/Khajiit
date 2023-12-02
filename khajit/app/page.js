@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SearchSort from './searchSort';
 import AddPopUp from './addPopUp';
+import AddApp from './AddApp'
 
 export const apps = [];
 for (let i = 1; i < 11; i++) {
@@ -24,16 +25,6 @@ for (let i = 1; i < 11; i++) {
     apps[i] = app;
   }
 
-  async function appInfo(int){
-      
-      const app = int;
-
-      return(
-        <p>
-          ${app.Price} {app.Rating}/5 {app.Platform} {app.Download} {app.RequiredSystem}
-        </p>
-      )
-  }
 export default async function Home() {
   const session = await getServerSession(authOptions)
   //Login Session Handling
@@ -43,6 +34,7 @@ export default async function Home() {
  
   return (
     <main>
+      <title>Khajiit</title>
       
       <div className='titleWrap'>
         <Link href='/'>
@@ -123,13 +115,9 @@ export default async function Home() {
           </div>
         )}
       </div>
-      <div className='bg-cardinal w-full'>
-        {session?.user.isModerator && (
-          <div className='AddApp p-1 justify-center text-center'>
-            <div className='w-full'>
-              <h1 className='font-bold'><FontAwesomeIcon icon={faPlus} /> Add App</h1>
-            </div>
-          </div>
+      <div className='w-full'>
+        {session?.user.email == 'b@b.b' && (
+          <AddApp/>
         )}
       </div>
 

@@ -33,7 +33,7 @@ export const authOptions = {
         }
         return { 
           ...profile,
-          role: userRole,
+          isModerator: userRole,
         }
       },
       server: process.env.EMAIL_SERVER,
