@@ -63,7 +63,7 @@ model Session {
 }
 
 model Apps {
-  id           Int      @id
+  id           Int      @id @default(autoincrement())
   Name         String   @db.Text
   Rating       Float
   Type         String

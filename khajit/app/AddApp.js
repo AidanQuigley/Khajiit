@@ -10,18 +10,18 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import prisma from 'lib/prisma';
 import { useSearchParams } from 'next/navigation'
+import axios from "axios";
+import ServerCreateApp from './serverCreateApp'
 
-export default function AddApp() {
-    const router = useRouter()
-    
+
+export default function AddApp() { 
     const [isDisplay, setDisplay] = useState(false);
     const toggleDisplay = () => setDisplay(!isDisplay);
 
     const [appName, setAppName] = useState('');
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState(0);
     const [type, setType] = useState('');
     const [device, setDevice] = useState('');
     const [os, setOS] = useState('');
@@ -33,11 +33,16 @@ export default function AddApp() {
             appName, type, price, device, os,
         }
 
-        const res = await fetch('/', {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newTicket)
+        ServerCreateApp(newapp)
+
+        /*const { data } = await axios.post('/api/newapps', {
+            appName,
+            type,
+            price,
+            device,
+            os,
         })
+        console.log(data)*/
     }
     
     return (
@@ -67,7 +72,7 @@ export default function AddApp() {
                             <label>
                                 <p className='font-bold text-cardinal'>Price: </p>
                                 <input 
-                                    onChange={(e) => setPrice(e.target.value)}
+                                    onChange={(e) => setPrice(parseFloat(e.target.value))}
                                     type='text'
                                     className="block w-full rounded-md border-0 py-1.5 text-jet shadow-sm ring-1 ring-inset ring-jet placeholder:text-jet focus:ring-2 focus:ring-inset focus:ring-cardinal sm:text-sm sm:leading-6" 
                                     placeholder="enter price...">

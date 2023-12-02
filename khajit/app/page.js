@@ -14,8 +14,17 @@ import SearchSort from './searchSort';
 import AddPopUp from './addPopUp';
 import AddApp from './AddApp'
 
-export const apps = [];
-for (let i = 1; i < 11; i++) {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+  //Login Session Handling
+
+  console.log(session?.user.isModerator)
+  //const mod = session.user.isModerator;
+
+  var appCount = await prisma.apps.count();
+
+  const apps = [];
+  for (let i = 1; i <= appCount; i++) {
     const app = await prisma.Apps.findUnique({
         where: {
             id: i,
@@ -24,13 +33,6 @@ for (let i = 1; i < 11; i++) {
     
     apps[i] = app;
   }
-
-export default async function Home() {
-  const session = await getServerSession(authOptions)
-  //Login Session Handling
-
-  console.log(session?.user.isModerator)
-  //const mod = session.user.isModerator;
  
   return (
     <main>
@@ -75,28 +77,29 @@ export default async function Home() {
           <div className='catalogWrap p-4'>
           <div className='catalogLogin border-4 bg-snowdarker rounded-lg w-10/12 m-auto'>
             <ul>
-              {apps.map(apps =>
-                  <li key ={apps.id}>
-                    <div className=''></div>
-                    <div className='text-cardinal inline mr-3'>{apps.Name}</div>
-                    <div className='text-orangeweb inline'><FontAwesomeIcon icon={faStar} /> {apps.Rating}/5 </div>
-                    <Link href={{
-                      pathname: '/appPage',
-                      query: {
-                        Name: apps.Name,
-                        Price: apps.Price,
-                        Rating: apps.Rating,
-                        Platform: apps.Platform,
-                        Download: apps.Download,
-                        RequiredSystem: apps.RequiredSystem,
-                      }
-                    }}>
-                      {/*<AddPopUp/>*/}
-                      <div className='text-cardinal inline float-right'>More</div>
-                    </Link>
-                    <hr className='border-2 border-snow'></hr>
-                  </li>
-                )}
+            {
+              apps.map(apps =>
+              <li key ={apps.id}>
+                <div className=''></div>
+                <div className='text-cardinal inline mr-3'>{apps.Name}</div>
+                <div className='text-orangeweb inline'><FontAwesomeIcon icon={faStar} /> {apps.Rating}/5 </div>
+                <Link href={{
+                  pathname: '/appPage',
+                  query: {
+                    Name: apps.Name,
+                    Price: apps.Price,
+                    Rating: apps.Rating,
+                    Platform: apps.Platform,
+                    Download: apps.Download,
+                    RequiredSystem: apps.RequiredSystem,
+                  }
+                }}>
+                  {/*<AddPopUp/>*/}
+                  <div className='text-cardinal inline float-right'>More</div>
+                </Link>
+                <hr className='border-2 border-snow'></hr>
+              </li>
+            )}
             </ul>
           </div>
         </div>
