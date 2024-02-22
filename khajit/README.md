@@ -23,7 +23,6 @@
 - Use the command: 'npm run dev' to run the dev environment
 - Open [http://localhost:3000] in any browser(recomend chrome) to view result
 
-
 - Page.js is the 'home' file in which the website starts and is entirely server side rendered
 - Layout.js is like a global javascript file where you include global elements that you want to see on every page like navigation, footers, etc.
 - Any other js file not in a folder are mostly client sided components with an exception of one file
